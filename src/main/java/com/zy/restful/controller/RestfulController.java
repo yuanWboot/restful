@@ -1,5 +1,6 @@
 package com.zy.restful.controller;
 
+import com.zy.restful.entiry.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +16,15 @@ public class RestfulController {
     //POST /restful/request/100
     @PostMapping("/request/{rid}")
    // @ResponseBody
-    public String doPostRequest(@PathVariable("rid") Integer requestId) {
+    public String doPostRequest(@PathVariable("rid") Integer requestId, Person person) {
+        System.out.println(person.getName()+":"+person.getAge());
         return "{\"message\":\"数据新建成功\",\"id\":"+requestId +"}";
     }
 
     @PutMapping("/request")
     //@ResponseBody
-    public String doPutRequest() {
+    public String doPutRequest(Person person) {
+        System.out.println(person.getName()+":"+person.getAge());
         return "{\"message\":\"数据更新成功\"}";
     }
 
