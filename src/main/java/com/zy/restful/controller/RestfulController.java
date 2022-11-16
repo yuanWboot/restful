@@ -33,4 +33,17 @@ public class RestfulController {
     public String doDeleteRequest() {
         return "{\"message\":\"数据删除成功\"}";
     }
+
+    @GetMapping("/person")  //http://localhost/restful/person?id=1
+    public Person findPersonById(Integer id) {
+        Person person = new Person();
+        if (id == 1) {
+            person.setName("张三");
+            person.setAge(66);
+        }else if (id == 2) {
+            person.setName("李四");
+            person.setAge(18);
+        }
+        return person;
+    }
 }
