@@ -10,6 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/restful")
+@CrossOrigin(origins = {"http://localhost:8080"})
+//允许所有访问
+//@CrossOrigin(origins = "*",maxAge = 3600)
 public class RestfulController {
     @GetMapping("/request")
     //@ResponseBody
@@ -68,6 +71,8 @@ public class RestfulController {
 
         list.add(p1);
         list.add(p2);
+
+        System.out.println("====================");
         return list;
     }
 
